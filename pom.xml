@@ -12,7 +12,7 @@
 	<artifactId>citylist</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>citylist</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Spring Application that lists Cities</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -35,6 +35,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 
