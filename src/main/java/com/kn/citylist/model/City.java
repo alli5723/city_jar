@@ -1,4 +1,4 @@
-package com.kn.citylist.city;
+package com.kn.citylist.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +10,9 @@ public class City {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+
   private String name;
+
   private String photo;
 
   public City() {
@@ -21,8 +23,18 @@ public class City {
     this.photo = photo;
   }
 
+  public City(Long id, String name, String photo) {
+    this.id = id;
+    this.name = name;
+    this.photo = photo;
+  }
+
   public Long getId() {
     return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
   }
 
   public String getName() {
