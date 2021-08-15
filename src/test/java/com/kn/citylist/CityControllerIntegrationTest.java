@@ -17,19 +17,13 @@ import static org.springframework.http.MediaType.APPLICATION_JSON;
 @AutoConfigureMockMvc
 class CityControllerIntegrationTest {
 
-		@Autowired
-		private MockMvc mockMvc;
+    @Autowired
+    private MockMvc mockMvc;
 
-		// @MockBean
-    // private CityService cityService;
-
-		// @MockBean
-    // private CityRepository cityRepository;
-
-		@Test
+    @Test
     void getAllCitiesReturnsOk() throws Exception {
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/cities"))
-				.andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn();
 
         assertTrue(result.getResponse().getContentAsString().contains("\"name\":\"Dublin\""));
@@ -37,20 +31,20 @@ class CityControllerIntegrationTest {
         assertTrue(result.getResponse().getContentAsString().contains("pageable"));
     }
 
-     @Test
-     void UpdateACityWShouldReturnOk() throws Exception {
-		 	String stringifiedCity = "{\"name\": \"Chilean\",\"photo\": \"https://upload.local/file.jpg\"}";
+    @Test
+    void UpdateACityWShouldReturnOk() throws Exception {
+        String stringifiedCity = "{\"name\": \"Chilean\",\"photo\": \"https://upload.local/file.jpg\"}";
 
-		 	mockMvc
-                    .perform(
-                            MockMvcRequestBuilders.patch("/cities/1")
-                            .accept(APPLICATION_JSON)
-                            .contentType(APPLICATION_JSON)
-                            .content(stringifiedCity)
-                    )
-                    .andExpect(MockMvcResultMatchers.content().string("{\"id\":1,\"name\":\"Chilean\",\"photo\":\"https://upload.local/file.jpg\"}"))
-		 	        .andExpect(MockMvcResultMatchers.status().isOk());
-     }
+        mockMvc
+                .perform(
+                        MockMvcRequestBuilders.patch("/cities/1")
+                                .accept(APPLICATION_JSON)
+                                .contentType(APPLICATION_JSON)
+                                .content(stringifiedCity)
+                )
+                .andExpect(MockMvcResultMatchers.content().string("{\"id\":1,\"name\":\"Chilean\",\"photo\":\"https://upload.local/file.jpg\"}"))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
 
     @Test
     void expectErrorWhenUpdateRequestIsInvalid() throws Exception {
@@ -60,6 +54,6 @@ class CityControllerIntegrationTest {
                                 .accept(APPLICATION_JSON)
                                 .contentType(APPLICATION_JSON)
                 )
-				.andExpect(MockMvcResultMatchers.status().isBadRequest());
+                .andExpect(MockMvcResultMatchers.status().isBadRequest());
     }
 }

@@ -3,39 +3,43 @@ package com.kn.citylist.model;
 import org.springframework.data.domain.Sort;
 
 public class CityPage {
-  private int pageNumber = 0;
+    private int pageNumber = 0;
 
-  private int pageSize = 10;
+    private int pageSize = 10;
 
-  private Sort.Direction sortDirection = Sort.Direction.ASC;
-  
-  private String sortBy = "name";
+    private Sort.Direction sortDirection = Sort.Direction.ASC;
 
-  public int getPageNumber() {
-    return pageNumber;
-  }
-  public void setPageNumber(int pageNumber) {
-    this.pageNumber = pageNumber;
-  }
+    private String sortBy = "name";
 
-  public int getPageSize() {
-    return pageSize;
-  }
-  public void setPageSize(int pageSize) {
-    this.pageSize = pageSize;
-  }
+    public int getPageNumber() {
+        return pageNumber;
+    }
 
-  public Sort.Direction getSortDirection() {
-    return sortDirection;
-  }
-  public void setSortDirection(Sort.Direction sortDirection) {
-    this.sortDirection = sortDirection;
-  }
+    public void setPageNumber(int pageNumber) {
+        this.pageNumber = pageNumber;
+    }
 
-  public String getSortBy() {
-    return sortBy;
-  }
-  public void setSortBy(String sortBy) {
-    this.sortBy = sortBy;
-  }
+    public int getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public Sort.Direction getSortDirection() {
+        return sortDirection;
+    }
+
+    public void setSortDirection(Sort.Direction sortDirection) {
+        this.sortDirection = sortDirection;
+    }
+
+    public String getSortBy() {
+        return sortBy;
+    }
+
+    public void setSortBy(String sortBy) {
+        this.sortBy = sortBy;
+    }
 }
