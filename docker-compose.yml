@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  api:
+    container_name: city_api
+    restart: always
+    build: .
+    environment: 
+      DB_HOST: db
+    ports:
+      - "8000:8081"
+    depends_on:
+      - db
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+      POSTGRES_DB: cities
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
