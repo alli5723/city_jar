@@ -1,0 +1,6 @@
+.idea
+.vscode
+target
+docker-compose.yml
+Dockerfile
+README.md
